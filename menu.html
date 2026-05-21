@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قهوة النخبة | القائمة</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<base target="_blank">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-mug-hot"></i>
+                <span>قهوة النخبة</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="menu.html" class="active">القائمة</a></li>
+                <li><a href="order.html">اطلب الآن</a></li>
+            </ul>
+            <a href="order.html" class="cart-icon">
+                <i class="fas fa-shopping-bag"></i>
+                <span class="cart-count">0</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Menu Header -->
+    <section class="page-header">
+        <div class="page-header-content">
+            <h1>قائمتنا</h1>
+            <p>اختيارنا المُحكم من المشروبات والحلويات بأجود المكونات</p>
+        </div>
+    </section>
+
+    <!-- Menu Filter -->
+    <section class="menu-filter">
+        <div class="container">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">الكل</button>
+                <button class="filter-btn" data-filter="hot">قهوة ساخنة</button>
+                <button class="filter-btn" data-filter="cold">قهوة مثلجة</button>
+                <button class="filter-btn" data-filter="tea">شاي ومشروبات</button>
+                <button class="filter-btn" data-filter="dessert">حلويات</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Content -->
+    <section class="menu-content">
+        <div class="container">
+            <!-- Hot Coffee -->
+            <div class="menu-category" data-category="hot">
+                <div class="category-header">
+                    <i class="fas fa-mug-hot"></i>
+                    <h2>قهوة ساخنة</h2>
+                </div>
+                <div class="menu-grid">
+                    <div class="menu-item" data-id="1" data-name="إسبريسو" data-price="30" data-image="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=300&h=300&fit=crop">
+                        <div class="menu-item-image">
+                            <img src="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=300&h=300&fit=crop" alt="إسبريسو">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-header">
+                                <h3>إسبريسو</h3>
+                                <span class="menu-item-price">30 ج.م</span>
+                            </div>
+                            <p class="menu-item-desc">قهوة مركزة غنية بالنكهة، مثالية لمحبي القهوة القوية</p>
+                            <button class="btn-add" onclick="addToCart(1)">
+                                <i class="fas fa-plus"></i> أضف للسلة
+                            </button>
+                        </div>
+                    </div>
+                    <div class="menu-item" data-id="2" data-name="إسبريسو دبل" data-price="35" data-image="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=300&h=300&fit=crop">
+                        <div class="menu-item-image">
+                            <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=300&h=300&fit=crop" alt="إسبريسو دبل">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-header">
+                                <h3>إسبريسو دبل</h3>
+                                <span class="menu-item-price">35 ج.م</span>
+                            </div>
+                            <p class="menu-item-desc">جرعة مضاعفة من القهوة المركزة لبداية يوم قوية</p>
+                            <button class="btn-add" onclick="addToCart(2)">
+                                <i class="fas fa-plus"></i> أضف للسلة
+                            </button>
+                        </div>
+                    </div>
+                    <div class="menu-item" data-id="3" data-name="أمريكانو" data-price="35" data-image="https://images.unsplash.com/photo-1551033406-611cf9a28f67?w=300&h=300&fit=crop">
+                        <div class="menu-item-image">
+                            <img src="https://images.unsplash.com/photo-1551033406-611cf9a28f67?w=300&h=300&fit=crop" alt="أمريكانو">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-header">
+                                <h3>أمريكانو</h3>
+                                <span class="menu-item-price">35 ج.م</span>
+                            </div>
+                            <p class="menu-item-desc">إسبريسو مع ماء ساخن، نكهة متوازنة وخفيفة</p>
+                            <button class="btn-add" onclick="addToCart(3)">
+                                <i class="fas fa-plus"></i> أضف للسلة
+                            </button>
+                        </div>
+                    </div>
+                    <div class="menu-item" data-id="4" data-name="كابتشينو" data-price="40" data-image="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=300&h=300&fit=crop">
+                        <div class="menu-item-image">
+                            <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=300&h=300&fit=crop" alt="كابتشينو">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-header">
+                                <h3>كابتشينو</h3>
+                                <span class="menu-item-price">40 ج.م</span>
+                            </div>
+                            <p class="menu-item-desc">إسبريسو مع حليب مبخر ورغوة كريمية ناعمة</p>
+                            <button class="btn-add" onclick="addToCart(4)">
+                                <i class="fas fa-plus"></i> أضف للسلة
+                            </button>
+                        </div>
+                    </div>
+                    <div class="menu-item" data-id="5" data-name="لاتيه" data-price="45" data-image="https://images.unsplash.com/photo-1514432324607-a09d9b4aefda?w=300&h=300&fit=crop">
+                        <div class="menu-item-image">
+                            <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefda?w=300&h=300&fit=crop" alt="لاتيه">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-header">
+                                <h3>لاتيه</h3>
+                                <span class="menu-item-price">45 ج.م</span>
+                            </div>
+                            <p class="menu-item-desc">إسبريسو مع حليب مبخر دسم ورغوة ناعمة</p>
+                            <button class="btn-add" onclick="addToCart(5)">
+                                <i class="fas fa-plus"></i> أضف للسلة
+                            </button>
+                        </div>
+                    </div>
+                    <div class="menu-item" data-id="6" data-name="موكا" data-price="50" data-image="https://images.unsplash.com/photo-1517701604599-bb29b5dd7359?w=300&h=300&fit=crop">
+                        <div class="menu-item-image">
+                            <img src="https://images.unsplash.com/photo-1517701604599-bb29b5dd7359?w=300&h=300&fit=crop" alt="موكا">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-header">
+                                <h3>موكا</h3>
+                                <span class="menu-item-price">50 ج.م</span>
+                            </div>
+                            <p class="menu-item-desc">خليط ساحر من الإسبريسو والشوكولاتة والحليب المبخر</p>
+                            <button class="btn-add" onclick="addToCart(6)">
+                                <i class="fas fa-plus"></i> أضف للسلة
+                            </button>
+                        </div>
+                    </div>
+                    <div class="menu-item" data-id="7" data-name="ماكياتو" data-price="38" data-image="https://images.unsplash.com/photo-1485808191679-5f86510681a2?w=300&h=300&fit=crop">
+                        <div class="menu-item-image">
+                            <img src="https://images.unsplash.com/photo-1485808191679-5f86510681a2?w=300&h=300&fit=crop" alt="ماكياتو">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-header">
+                                <h3>ماكياتو</h3>
+                                <span class="menu-item-price">38 ج.م</span>
+                            </div>
+                            <p class="menu-item-desc">إسبريسو مع لمسة خفيفة من الحليب المبخر والرغوة</p>
+                            <button class="btn-add" onclick="addToCart(7)">
+                                <i class="fas fa-plus"></i> أضف للسلة
+                            </button>
+                        </div>
+                    </div>
+                    <div class="menu-item" data-id="8" data-name="فلات وايت" data-price="48" data-image="https://images.unsplash.com/photo-1577968897966-3d4325b36b61?w=300&h=300&fit=crop">
+                        <div class="menu-item-image">
+                            <img src="https://images.unsplash.com/photo-1577968897966-3d4325b36b61?w=300&h=300&fit=crop" alt="فلات وايت">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-header">
+                                <h3>فلات وايت</h3>
+                                <span class="menu-item-price">48 ج.م</span>
+                            </div>
+                            <p class="menu-item-desc">إسبريسو دبل مع حليب ميكروفوم ناعم جداً</p>
+                            <button class="btn-add" onclick="addToCart(8)">
+                                <i class="fas fa-plus"></i> أضف للسلة
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cold Coffee -->
+            <div class="menu-category" data-category="cold">
+                <div class="category-header">
+                    <i class="fas fa-snowflake"></i>
+                    <h2>قهوة مثلجة</h2>
+                </div>
+                <div class="menu-grid">
+                    <div class="menu-item" data-id="9" data-name="آيس أمريكانو" data-price="40" data-image="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?w=300&h=300&fit=crop">
+                        <div class="menu-item-image">
+                            <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?w=300&h=300&fit=crop" alt="آيس أمريكانو">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-header">
+                                <h3>آيس أمريكانو</h3>
+                                <span class="menu-item-price">40 ج.م</span>
+                            </div>
+                            <p class="menu-item-desc">إسبريسو مع ماء ومكعبات ثلج، منعش ومنشط</p>
+                            <button class="btn-add" onclick="addToCart(9)">
+                                <i class="fas fa-plus"></i> أضف للسلة
+                            </button>
+                        </div>
+                    </div>
+                    <div class="menu-item" data-id="10" data-name="آيس لاتيه" data-price="50" data-image="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=300&h=300&fit=crop">
+                        <div class="menu-item-image">
+                            <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=300&h=300&fit=crop" alt="آيس لاتيه">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-header">
+                                <h3>آيس لاتيه</h3>
+                                <span class="menu-item-price">50 ج.م</span>
+                            </div>
+                            <p class="menu-item-desc">إسبريسو مع حليب بارد ومكعبات ثلج، كريمي ومنعش</p>
+                            <button class="btn-add" onclick="addToCart(10)">
+                                <i class="fas fa-plus"></i> أضف للسلة
+                            </button>
+                        </div>
+                    </div>
+                    <div class="menu-item" data-id="11" data-name="فرابتشينو موكا" data-price="55" data-image="https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?w=300&h=300&fit=crop">
+                        <div class="menu-item-image">
+                            <img src="https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?w=300&h=300&fit=crop" alt="فرابتشينو موكا">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-header">
+                                <h3>فرابتشينو موكا</h3>
+                                <span class="menu-item-price">55 ج.م</span>
+                            </div>
+                            <p class="menu-item-desc">مشروب مثلج مخفوق مع الشوكولاتة والقهوة والكريمة</p>
+                            <button class="btn-add" onclick="addToCart(11)">
+                                <i class="fas fa-plus"></i> أضف للسلة
+                            </button>
+                        </div>
+                    </div>
+                    <div class="menu-item" data-id="12" data-name="كولد برو" data-price="45" data-image="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=300&h=300&fit=crop">
+                        <div class="menu-item-image">
+                            <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=300&h=300&fit=crop" alt="كولد برو">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-header">
+                                <h3>كولد برو</h3>
+                                <span class="menu-item-price">45 ج.م</span>
+                            </div>
+                            <p class="menu-item-desc">قهوة منقوعة لمدة 12 ساعة، ناعمة وقليلة الحموضة</p>
+                            <button class="btn-add" onclick="addToCart(12)">
+                                <i class="fas fa-plus"></i> أضف للسلة
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tea -->
+            <div class="menu-category" data-category="tea">
+                <div class="category-header">
+                    <i class="fas fa-leaf"></i>
+                    <h2>شاي ومشروبات</h2>
+                </div>
+                <div class="menu-grid">
+                    <div class="menu-item" data-id="13" data-name="شاي أحمر" data-price="20" data-image="https://images.unsplash.com/photo-1594631252845-29fc4cc8cde9?w=300&h=300&fit=crop">
+                        <div class="menu-item-image">
+                            <img src="https://images.unsplash.com/photo-1594631252845-29fc4cc8cde9?w=300&h=300&fit=crop" alt="شاي أحمر">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-header">
+                                <h3>شاي أحمر</h3>
+                                <span class="menu-item-price">20 ج.م</span>
+                            </div>
+                            <p class="menu-item-desc">شاي مصري تقليدي بأوراق الشاي المختارة</p>
+                            <button class="btn-add" onclick="addToCart(13)">
+                                <i class="fas fa-plus"></i> أضف للسلة
+                            </button>
+                        </div>
+                    </div>
+                    <div class="menu-item" data-id="14" data-name="شاي أخضر" data-price="25" data-image="https://images.unsplash.com/photo-1627435601361-ec25f5b1d0e5?w=300&h=300&fit=crop">
+                        <div class="menu-item-image">
+                            <img src="https://images.unsplash.com/photo-1627435601361-ec25f5b1d0e5?w=300&h=300&fit=crop" alt="شاي أخضر">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-header">
+                                <h3>شاي أخضر</h3>
+                                <span class="menu-item-price">25 ج.م</span>
+                            </div>
+                            <p class="menu-item-desc">شاي أخضر طبيعي غني بالمضادات الأكسدة</p>
+                            <button class="btn-add" onclick="addToCart(14)">
+                                <i class="fas fa-plus"></i> أضف للسلة
+                            </button>
+                        </div>
+                    </div>
+                    <div class="menu-item" data-id="15" data-name="هوت شوكليت" data-price="40" data-image="https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?w=300&h=300&fit=crop">
+                        <div class="menu-item-image">
+                            <img src="https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?w=300&h=300&fit=crop" alt="هوت شوكليت">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-header">
+                                <h3>هوت شوكليت</h3>
+                                <span class="menu-item-price">40 ج.م</span>
+                            </div>
+                            <p class="menu-item-desc">شوكولاتة ساخنة غنية مع الكريمة المخفوقة</p>
+                            <button class="btn-add" onclick="addToCart(15)">
+                                <i class="fas fa-plus"></i> أضف للسلة
+                            </button>
+                        </div>
+                    </div>
+                    <div class="menu-item" data-id="16" data-name="موهيتو ليمون" data-price="45" data-image="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300&h=300&fit=crop">
+                        <div class="menu-item-image">
+                            <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300&h=300&fit=crop" alt="موهيتو ليمون">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-header">
+                                <h3>موهيتو ليمون</h3>
+                                <span class="menu-item-price">45 ج.م</span>
+                            </div>
+                            <p class="menu-item-desc">ليمون طازج مع نعناع ومكعبات ثلج، منعش جداً</p>
+                            <button class="btn-add" onclick="addToCart(16)">
+                                <i class="fas fa-plus"></i> أضف للسلة
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Desserts -->
+            <div class="menu-category" data-category="dessert">
+                <div class="category-header">
+                    <i class="fas fa-birthday-cake"></i>
+                    <h2>حلويات</h2>
+                </div>
+                <div class="menu-grid">
+                    <div class="menu-item" data-id="17" data-name="تشيز كيك" data-price="55" data-image="https://images.unsplash.com/photo-1524351199678-941a58a3df26?w=300&h=300&fit=crop">
+                        <div class="menu-item-image">
+                            <img src="https://images.unsplash.com/photo-1524351199678-941a58a3df26?w=300&h=300&fit=crop" alt="تشيز كيك">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-header">
+                                <h3>تشيز كيك</h3>
+                                <span class="menu-item-price">55 ج.م</span>
+                            </div>
+                            <p class="menu-item-desc">كيكة الجبن الكلاسيكية مع صوص التوت</p>
+                            <button class="btn-add" onclick="addToCart(17)">
+                                <i class="fas fa-plus"></i> أضف للسلة
+                            </button>
+                        </div>
+                    </div>
+                    <div class="menu-item" data-id="18" data-name="كرواسان زبدة" data-price="35" data-image="https://images.unsplash.com/photo-1555507036-ab1f40388085?w=300&h=300&fit=crop">
+                        <div class="menu-item-image">
+                            <img src="https://images.unsplash.com/photo-1555507036-ab1f40388085?w=300&h=300&fit=crop" alt="كرواسان زبدة">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-header">
+                                <h3>كرواسان زبدة</h3>
+                                <span class="menu-item-price">35 ج.م</span>
+                            </div>
+                            <p class="menu-item-desc">كرواسان فرنسي طازج مقرمش من الخارج وطري من الداخل</p>
+                            <button class="btn-add" onclick="addToCart(18)">
+                                <i class="fas fa-plus"></i> أضف للسلة
+                            </button>
+                        </div>
+                    </div>
+                    <div class="menu-item" data-id="19" data-name="براوني شوكليت" data-price="45" data-image="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=300&h=300&fit=crop">
+                        <div class="menu-item-image">
+                            <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=300&h=300&fit=crop" alt="براوني شوكليت">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-header">
+                                <h3>براوني شوكليت</h3>
+                                <span class="menu-item-price">45 ج.م</span>
+                            </div>
+                            <p class="menu-item-desc">براوني غني بالشوكولاتة الداكنة مع قطع الشوكولاتة</p>
+                            <button class="btn-add" onclick="addToCart(19)">
+                                <i class="fas fa-plus"></i> أضف للسلة
+                            </button>
+                        </div>
+                    </div>
+                    <div class="menu-item" data-id="20" data-name="تيراميسو" data-price="60" data-image="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=300&h=300&fit=crop">
+                        <div class="menu-item-image">
+                            <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=300&h=300&fit=crop" alt="تيراميسو">
+                        </div>
+                        <div class="menu-item-info">
+                            <div class="menu-item-header">
+                                <h3>تيراميسو</h3>
+                                <span class="menu-item-price">60 ج.م</span>
+                            </div>
+                            <p class="menu-item-desc">حلوى إيطالية كلاسيكية بالقهوة والمارسكابوني</p>
+                            <button class="btn-add" onclick="addToCart(20)">
+                                <i class="fas fa-plus"></i> أضف للسلة
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Floating Button -->
+    <a href="order.html" class="cart-floating">
+        <i class="fas fa-shopping-bag"></i>
+        <span class="cart-floating-count">0</span>
+    </a>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <i class="fas fa-mug-hot"></i>
+                        <span>قهوة النخبة</span>
+                    </a>
+                    <p>نختار الأجود.. ونقدم الأفضل.. في كل فنجان.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="menu.html">القائمة</a></li>
+                        <li><a href="order.html">اطلب الآن</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>تواصل معنا</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 شارع النيل، القاهرة</p>
+                    <p><i class="fas fa-phone"></i> 0100 123 4567</p>
+                    <p><i class="fas fa-envelope"></i> info@elitecoffee.com</p>
+                </div>
+                <div class="footer-hours">
+                    <h4>ساعات العمل</h4>
+                    <p>السبت - الخميس: 7:00 ص - 11:00 م</p>
+                    <p>الجمعة: 8:00 ص - 12:00 ص</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 قهوة النخبة. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قهوة النخبة | اطلب الآن</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<base target="_blank">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-mug-hot"></i>
+                <span>قهوة النخبة</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="menu.html">القائمة</a></li>
+                <li><a href="order.html" class="active">اطلب الآن</a></li>
+            </ul>
+            <a href="order.html" class="cart-icon">
+                <i class="fas fa-shopping-bag"></i>
+                <span class="cart-count">0</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Order Header -->
+    <section class="page-header order-header">
+        <div class="page-header-content">
+            <h1>سلة المشتريات</h1>
+            <p>راجع طلبك وأكمل عملية الشراء بخطوات بسيطة</p>
+        </div>
+    </section>
+
+    <!-- Order Content -->
+    <section class="order-content">
+        <div class="container">
+            <div class="order-grid">
+                <!-- Cart Items -->
+                <div class="cart-section">
+                    <div class="cart-header">
+                        <h2><i class="fas fa-shopping-cart"></i> منتجاتك</h2>
+                        <button class="btn-clear" onclick="clearCart()">
+                            <i class="fas fa-trash-alt"></i> إفراغ السلة
+                        </button>
+                    </div>
+
+                    <div class="cart-items" id="cartItems">
+                        <!-- Cart items will be loaded here by JS -->
+                        <div class="cart-empty">
+                            <i class="fas fa-shopping-basket"></i>
+                            <h3>السلة فاضية</h3>
+                            <p>اختار من قائمتنا اللذيذة وأضف لسلتك</p>
+                            <a href="menu.html" class="btn btn-primary">تصفح القائمة</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Summary -->
+                <div class="order-summary">
+                    <div class="summary-card">
+                        <h2><i class="fas fa-receipt"></i> ملخص الطلب</h2>
+
+                        <div class="summary-row">
+                            <span>المجموع الفرعي</span>
+                            <span id="subtotal">0 ج.م</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>رسوم التوصيل</span>
+                            <span id="deliveryFee">15 ج.م</span>
+                        </div>
+                        <div class="summary-row discount-row" id="discountRow" style="display:none;">
+                            <span>الخصم</span>
+                            <span id="discountAmount">-0 ج.م</span>
+                        </div>
+                        <div class="summary-divider"></div>
+                        <div class="summary-row total-row">
+                            <span>الإجمالي</span>
+                            <span id="total">15 ج.م</span>
+                        </div>
+
+                        <!-- Promo Code -->
+                        <div class="promo-section">
+                            <div class="promo-input-group">
+                                <input type="text" id="promoCode" placeholder="كود الخصم">
+                                <button onclick="applyPromo()">تطبيق</button>
+                            </div>
+                            <p class="promo-hint">جرب: COFFEE20 (خصم 20%)</p>
+                        </div>
+                    </div>
+
+                    <!-- Checkout Form -->
+                    <div class="checkout-card">
+                        <h2><i class="fas fa-user"></i> بيانات التوصيل</h2>
+                        <form id="checkoutForm" onsubmit="submitOrder(event)">
+                            <div class="form-group">
+                                <label>الاسم الكامل *</label>
+                                <input type="text" id="customerName" required placeholder="محمد أحمد">
+                            </div>
+                            <div class="form-group">
+                                <label>رقم التليفون *</label>
+                                <input type="tel" id="customerPhone" required placeholder="01xx xxx xxxx">
+                            </div>
+                            <div class="form-group">
+                                <label>العنوان بالتفصيل *</label>
+                                <textarea id="customerAddress" required rows="3" placeholder="شارع، عمارة، شقة، منطقة..."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>ملاحظات الطلب (اختياري)</label>
+                                <textarea id="orderNotes" rows="2" placeholder="مثال: بدون سكر، حليب خفيف..."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>طريقة الدفع *</label>
+                                <div class="payment-options">
+                                    <label class="payment-option">
+                                        <input type="radio" name="payment" value="cash" checked>
+                                        <span><i class="fas fa-money-bill-wave"></i> كاش عند الاستلام</span>
+                                    </label>
+                                    <label class="payment-option">
+                                        <input type="radio" name="payment" value="card">
+                                        <span><i class="fas fa-credit-card"></i> بطاقة ائتمان</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-checkout">
+                                <i class="fas fa-paper-plane"></i> تأكيد الطلب
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <div class="modal-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>تم تأكيد طلبك بنجاح!</h2>
+            <p>رقم الطلب: <strong id="orderNumber">#12345</strong></p>
+            <p>هنتواصل معاك خلال دقايق لتأكيد الطلب</p>
+            <div class="modal-actions">
+                <a href="index.html" class="btn btn-primary">الرجوع للرئيسية</a>
+                <a href="menu.html" class="btn btn-outline">اطلب تاني</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <i class="fas fa-mug-hot"></i>
+                        <span>قهوة النخبة</span>
+                    </a>
+                    <p>نختار الأجود.. ونقدم الأفضل.. في كل فنجان.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="menu.html">القائمة</a></li>
+                        <li><a href="order.html">اطلب الآن</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>تواصل معنا</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 شارع النيل، القاهرة</p>
+                    <p><i class="fas fa-phone"></i> 0100 123 4567</p>
+                    <p><i class="fas fa-envelope"></i> info@elitecoffee.com</p>
+                </div>
+                <div class="footer-hours">
+                    <h4>ساعات العمل</h4>
+                    <p>السبت - الخميس: 7:00 ص - 11:00 م</p>
+                    <p>الجمعة: 8:00 ص - 12:00 ص</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 قهوة النخبة. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
